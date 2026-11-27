@@ -1,0 +1,25 @@
+# Two-band model on 4x4 (comparison with ALF): beta = 4, chem = 0.3 breaks particle-hole/C4
+[model]
+model    = "twoband"
+coupling = "Heisenberg"
+lattice  = "square"
+L1 = 4
+L2 = 4
+t = 1.0
+delta = 0.4
+mu = -2.0
+chem = 0.3
+U = 1.0
+
+[algorithm]
+algorithm = "finite_T"
+beta = 4.0
+dtau = 0.025
+n_wrap = 10
+
+[mc]
+n_warmup = 40
+n_bins = 25
+n_sweeps = 40
+measure_corr = true
+seed = 1

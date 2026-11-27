@@ -1,0 +1,29 @@
+# Two-band model, Ising coupling, 2x2 (reproduces the ED check, beta = 2, chem = 0.3)
+[model]
+model    = "twoband"      # "hubbard" | "twoband"
+coupling = "Ising"        # "Ising" | "XY" | "Heisenberg"
+lattice  = "square"       # "square" | "chain"
+L1 = 2
+L2 = 2
+t = 1.0
+delta = 0.4
+mu = -2.0
+chem = 0.3
+U = 1.0
+
+[algorithm]
+algorithm = "finite_T"    # "finite_T" | "projector"
+beta = 2.0                # finite_T: 1/T; projector: measurement window
+theta = 5.0               # projector only
+dtau = 0.05
+n_wrap = 10
+n_part = -1               # projector: -1 = n_dim/2 (2 per site for twoband)
+
+[mc]
+n_warmup = 50
+n_bins = 40
+n_sweeps = 50
+meas_every = 1
+measure_corr = true
+seed = 1
+out_dir = "runs/twoband_2x2_ising"
